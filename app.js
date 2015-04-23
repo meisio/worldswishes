@@ -1,14 +1,20 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express       = require('express');
+var path          = require('path');
+var favicon       = require('serve-favicon');
+var logger        = require('morgan');
+var cookieParser  = require('cookie-parser');
+var bodyParser    = require('body-parser');
+var i18n          = require("i18next");
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes  = require('./routes/index');
+var twish   = require('./routes/twish');
+var users   = require('./routes/users');
+
+// Local Modules
+// var settings = require('./modules/settings.js');
 
 var app = express();
+i18n.init();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,8 +27,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(i18n.handle);
 
 app.use('/', routes);
+app.use('/twish', twish);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
