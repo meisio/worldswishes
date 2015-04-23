@@ -1,3 +1,6 @@
+# settings
+modules/settings.js
+
 # Logs
 logs
 *.log
