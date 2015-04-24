@@ -14,7 +14,10 @@ var users   = require('./routes/users');
 // var settings = require('./modules/settings.js');
 
 var app = express();
-i18n.init();
+i18n.init({
+  fallbackOnNull: true,
+  fallbackLng: 'en-US'
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

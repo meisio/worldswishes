@@ -5,7 +5,6 @@
  * @mail	hello ( at ) meis.io
  */
 
-
 // external modules
 var express = require('express');
 var Twit 	= require('twit');
@@ -33,49 +32,41 @@ router.get('/', function(req, res, next) {
 						? req.query.before
 						: false;
 
-	if( twitterId ){
 
-		// access i18n
-		var i18n = req.i18n;
-		console.log(i18n.translate('app.iwish'));
-		var query = {};
-		query.q = i18n.translate('app.iwish');
-		query.result_type = 'recent';
-		query.count = count;
+	// access i18n
+	var i18n = req.i18n;
 
+	var query = {};
+	query.q = i18n.translate('app.iwish');
+	query.result_type = 'recent';
+	query.count = count;
+
+	if ( twitterId && twitterId != -1 ) {
 		switch(before){
 			case true: 	query.maxid   = twitterId; break;
 			case false: query.sinceid = twitterId; break;
 		}
-		
-		T.get('search/tweets', query, function(twitterErr, twitterRes) {
-			if( twitterErr ) {
-				// handle error case
-				res
-				.status(500)
-				.send({
-					message: 'Oops... Something went wrong.'
-				});
-			} else {
-				// handle no error and check if we got some results
-				var tweets = 	twitterRes.statuses
-							 ?	twitterRes.statuses
-							 : 	[];
-
-				res.send(twitterRes.statuses);
-			}
-
-		});
-
-	} else {
-
-		res
-		.status(400)
-		.send({
-			message: 'Missing parameters: ' + (twitterId?'':'Twitter Id not provided! ')
-		});
-
 	}
+	
+	T.get('search/tweets', query, function(twitterErr, twitterRes) {
+		if( twitterErr ) {
+			// handle error case
+			res
+			.status(500)
+			.send({
+				message: 'Oops... Something went wrong.'
+			});
+		} else {
+			// handle no error and check if we got some results
+			var tweets = 	twitterRes.statuses
+						 ?	twitterRes.statuses
+						 : 	[];
+
+			res.send(twitterRes.statuses);
+		}
+
+	});
+
 });
 
 module.exports = router;

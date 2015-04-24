@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div(class='row','ng-controller'='TwishController')
+		div(class='col-md-3 twish pull-right','ng-repeat'='tweet in tweets')
+			h4 {{tweet.user.name}} wishes
+			p {{tweet.text}}
+			button(class='btn btn-sm btn-success') Make True
+

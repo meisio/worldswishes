@@ -14,4 +14,10 @@ Execute the following commands to get started:
 	cd public && bower install
 	cd .. && npm start
 
+## Acknowledgments
+> Thank you [stocksnap.io](https://stocksnap.io/photo/DXHZF2FU5V) for the photo(s)!
+
 ## Todos
+
+1. Natural language processing
+2. Flickr support

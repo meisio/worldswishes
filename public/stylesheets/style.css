@@ -1,8 +1,49 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: 'PoiretOne'; /*a name to be used later*/
+    src: url('/fonts/PoiretOne-Regular.ttf'); /*URL to font*/
+}
+
+body { 
+	background: url(/images/bg1.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding: 50px;
+	font-family: 'PoiretOne', "Helvetica Neue", Helvetica, Arial,sans-serif !important;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
+}
+
+/*
+.container {
+	background-color: #fafafa;
+	border: 30px solid #fff;
+}
+*/
+
+.foot-logo{
+  /* max-width: 96px; */
+  /* background-color: #FFF; */
+  padding: 5px;
+  /* margin-top: 15px; */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  /* width: inherit; */
+  margin: 0px 0px 0px 0px;
+}
+
+.twish{
+	background-color: #FDFDFD;
+	border: 20px solid #fff;
+	padding: 25px;
+	margin: 15px;
+	height: 250px;
+}
+
+.twish button {
+	
 }

@@ -1,7 +1,18 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+
+html('ng-app'='App')
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+	body
+		img(class='foot-logo',src='/images/logo.png')
+		div(class='container')
+			block content
+			div(class='footer')
+
+	script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+	script(type='text/javascript', src='/bower_components/typed/dist/typed.min.js')
+	script(type='text/javascript', src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+	script(type='text/javascript', src='/bower_components/angularjs/angular.min.js')
+	script(type='text/javascript', src='/javascripts/app.js')
